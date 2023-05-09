@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+
+  <link rel="stylesheet" href="style.css">
+  <script src="page_script.js" defer></script>
+
+  <audio hidden id="music1" onended="reset_music(0);">
+    <source src="music/music1.mp3" type="audio/mpeg">
+    Аудио не поддерживается в браузере.
+  </audio>
+
+  <audio hidden id="music2" onended="reset_music(1);">
+    <source src="music/music2.mp3" type="audio/mpeg">
+    Аудио не поддерживается в браузере.
+  </audio>
+
+  <audio hidden id="music3" onended="reset_music(2);">
+    <source src="music/music3.mp3" type="audio/mpeg">
+    Аудио не поддерживается в браузере.
+  </audio>
+
+  <link rel="icon" href="icon.png">
+  <title>Галерея изображений</title>
+</head>
+
+<body>
+  <div id="background-grad">
+
+    <div id="image-layout" class="layout">
+
+      <div id="image-container" class="container">
+        <img id="image-view" src="images/1.jpg" alt="Изображение из галереи">
+      </div>
+
+      <div id="subtitle-container" class="container">
+        <div id="image-subtitle" class="subtitle">Школа Hope's Peak Academy из франшизы Danganronpa. Яркое, ясное и вселяющее надежду изображение.</div>
+      </div>
+
+      <div id="img-buttons-container" class="container">
+        <div id="prev-image" onclick="change_image(-1, true)"></div>
+        <div id="slideshow-button" onclick="toggle_slideshow()"></div>
+        <div id="next-image" onclick="change_image(1, true)"></div>
+      </div>
+
+      <div id="timer-container" class="container">
+        <div class="subtitle" style="padding: 2px; font-size: 14px; text-align: center">Таймер (сек.):</div>
+        <input type="text" id="timer" value="3" style="text-align: center">
+        <input type="submit" id="submit" value="Применить" style="cursor: pointer"
+        onclick="update_timer()">
+      </div>
+
+    </div>
+    <div id="right-layout-container">
+
+      <div class="layout" id="music-layout" style="overflow: auto;">
+
+        <div id="cheery-music" class="container" style="margin: 2% 2% 1% 2%; display: flex; flex-direction: column" onclick="start_music(0)">
+          <div class="subtitle" style="padding: 15px 15px 0px 15px"><b>Веселая музыка</b></div>
+          <div class="subtitle" style="font-size: 10px"><i> • Kevin MacLeod - Cipher</i></div>
+        </div>
+
+        <div id="calm-music" class="container" style="margin: 1% 2%; display: flex; flex-direction: column" onclick="start_music(1)">
+          <div class="subtitle" style="padding: 15px 15px 0px 15px"><b>Спокойная музыка</b></div>
+          <div class="subtitle" style="font-size: 10px"><i> • Ptr. - Genesis</i></div>
+        </div>
+
+        <div id="epic-music" class="container" style="margin: 1% 2%; display: flex; flex-direction: column" onclick="start_music(2)">
+          <div class="subtitle" style="padding: 15px 15px 0px 15px"><b>Эпичная музыка</b></div>
+          <div class="subtitle" style="font-size: 10px"><i> • sytricka - C418's Stranger Things Remix and Aria Math MASHUP</i></div>
+        </div>
+
+        <div id="music-player" class="container" style="margin: 2%; display: flex; flex-direction: row; margin-top: auto; justify-content: center">
+          <div id="music-button" onclick="toggle_music()"></div>
+          <div id="music-time" class="subtitle">0:00 / 0:00</div>
+          <input type="range" id="music-bar" name="volume" min="0" max="231" value="0"
+          oninput="music_bar_input()" onchange="music_bar_change()">
+        </div>
+
+      </div>
+
+      <div class="layout" id="info-layout" style="overflow: auto">
+        <div class="subtitle" style="font-size: 18px">
+          Проект <b>"Галерея изображений"</b><br>
+          по дисциплине <i>Мультимедиа технологии</i><br><br>
+          <b>Автор</b>: Вячеслав Алексеев<br>
+          <b>Номер потока</b>: МТТ 1.1<br>
+          <b>Номер группы</b>: N32461<br><br>
+          <i>2023 год</i>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</body>
+
+</html>
